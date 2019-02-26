@@ -34,4 +34,8 @@ wget https://www.cloudflare.com/ips-v4 -O cloudflare-ip.txt
 curl -Lfs https://github.com/IBM-Bluemix-Docs/hardware-firewall-dedicated/blob/master/ips.md | grep "td" | grep -Eo '(\d+)\.(\d+)\.(\d+)\.(\d+)/(\d+)' | grep -vE "^10.|^192.168|^172.(1[6-9]|2\d|3[0-1])" > ibm-ip.txt
 ```
 
+# oracle
+```
+curl -Lfs https://docs.cloud.oracle.com/iaas/Content/General/Concepts/addressranges.htm | grep "li value" | awk -F"<|>" '{print $3}' | grep -E '(\d+)\.(\d+)\.(\d+)\.(\d+)/(\d+)' > oracle-ip.txt
+```
 
